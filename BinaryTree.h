@@ -30,6 +30,9 @@ private:
     void recursiveInsertion(Node<T>*& node,Node<T>* prevNode, T data);
     void recursiveSearch(Node<T>*& node, T data);
     void recursivePreOrder(Node<T>* node, std::string &toReturn);
+    void recursiveChildren(Node<T> *node, std::string &toReturn);
+    void recursiveAncestors(Node<T> *node, std::string &toReturn);
+    int recursiveDegree(Node<T> *node, T data);
 public:
     //Constructor and destructor of the class
     BinaryTree();
@@ -55,6 +58,9 @@ public:
     std::string sibling(T data);
     int levelOf(T data);
     int degree();
+    int height();
+    std::string decendents(T data);
+    std::string ancestors(T data);
 
 };
 
@@ -209,10 +215,68 @@ int BinaryTree<T>::levelOf(T data) {
 }
 
 template<typename T>
-int BinaryTree<T>::degree() {
+int BinaryTree<T>::height() {
     return degreeOfTheTree+1;
 }
 
+template<typename T>
+int BinaryTree<T>::degree() {
+    iterator=root;
+    int degree=0;
+    return recursiveDegree(iterator,degree);
+}
 
+template<typename T>
+int BinaryTree<T>::recursiveDegree(Node<T> *node, T data) {
+    if (node->right != nullptr) {
+        data++;
+        recursiveDegree(node->right,data);
+    }
+    if (node->left != nullptr) {
+        data++;
+        recursiveDegree(node->left,data);
+    }
+    return data;
+}
+
+template<typename T>
+std::string BinaryTree<T>::decendents(T data){
+    moveTo(data);
+    std::string toReturn;
+    recursiveChildren(iterator,toReturn);
+    return toReturn;
+}
+
+template<typename  T>
+void BinaryTree<T>::recursiveChildren(Node<T> *node, std::string &toReturn) {
+    if(node!= nullptr) {
+        if (node->right != nullptr) {
+            toReturn.append(std::to_string(node->right->data) + " ");
+            recursiveChildren(node->right, toReturn);
+        }
+        if (node->left != nullptr) {
+            toReturn.append(std::to_string(node->left->data) + " ");
+            recursiveChildren(node->left,toReturn);
+        }
+    }
+}
+
+template<typename T>
+std::string BinaryTree<T>::ancestors(T data){
+    moveTo(data);
+    std::string toReturn;
+    recursiveAncestors(iterator,toReturn);
+    return toReturn;
+}
+
+template<typename  T>
+void BinaryTree<T>::recursiveAncestors(Node<T> *node, std::string &toReturn) {
+    if(node!= nullptr && node->father != nullptr){
+        toReturn.append(std::to_string(node->father->data) + " ");
+        recursiveAncestors(node->father,toReturn);
+    } else {
+        toReturn.append("NULL");
+    }
+}
 
 #endif //BINARYTREE_BINARYTREE_Hreturn
