@@ -5,6 +5,7 @@ using namespace std;
 int menu(){
     int option;
     cout << "\n\n- - - - - - - - - - - - - - - - M E N U - - - - - - - - - - - - - - - - - -"<<endl;
+    cout << "Hola";
     cout<< "[1]. Ingresar datos." << endl;
     cout<< "[2]. Mostrar arbol." << endl;
     cout<< "[3]. Buscar padres." << endl;
