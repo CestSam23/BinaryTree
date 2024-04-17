@@ -1,5 +1,6 @@
 #ifndef BINARYTREE_BINARYTREE_H
 #define BINARYTREE_BINARYTREE_H
+#include <queue>
 
 template <typename T>
 class Node{
@@ -36,6 +37,7 @@ private:
     void recursivePreOrder(Node<T>* node, std::string &toReturn);
     void recursiveInOrder(Node<T> *node, std::string &toReturn);
     void recursivePostOrder(Node<T>* node, std::string &toReturn);
+
 public:
     //Constructor and destructor of the class
     BinaryTree();
@@ -52,7 +54,7 @@ public:
     std::string preOrder();
     std::string postOrder();
     std::string inOrder();
-    std::string breadthFirstSearch();
+    bool breadthFirstSearch(T data);
 
     //Functions of the teacher
     int getWeight();
@@ -183,9 +185,24 @@ void BinaryTree<T>::recursivePostOrder(Node<T> *node, std::string &toReturn) {
 }
 
 template<typename T>
-std::string BinaryTree<T>::breadthFirstSearch() {
+bool BinaryTree<T>::breadthFirstSearch(T data) {
+    std::queue<Node<T> *> *auxiliarQueue = new std::queue<Node<T> *>;
+    auxiliarQueue->push(root);
 
+    while(auxiliarQueue->size()!=0){
+        Node<T> *auxiliar = auxiliarQueue->front();
+        auxiliarQueue->pop();
+        if(auxiliar->data == data){
+            return true;
+        } else{
+            if(auxiliar->left!=NULL) auxiliarQueue->push(auxiliar->left);
+
+            if(auxiliar->right!=NULL)  auxiliarQueue->push(auxiliar->right);
+        }
+    }
+    return false;
 }
+
 
 template<typename T>
 int BinaryTree<T>::getWeight() {return weight;}

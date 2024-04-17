@@ -19,6 +19,7 @@ int menu(){
     cout<< "\n[12] PRE-Order." << endl;
     cout<< "[13] IN-Order." << endl;
     cout<< "[14] POST-Order." << endl;
+    cout << "[16] BFS. " << endl;
     cout<< "\n[0]. Salir." ;
     cout<< "\nDigite una opcion: " ;
     cin>>option;
@@ -39,6 +40,7 @@ string ancestors(BinaryTree<int> *tree);
 string preOrder(BinaryTree<int> *tree);
 string inOrder(BinaryTree<int> *tree);
 string postOrder(BinaryTree<int> *tree);
+void bfs(BinaryTree<int> *tree);
 
 int main() {
     BinaryTree<int> *tree = new BinaryTree<int>;
@@ -122,6 +124,10 @@ int main() {
                 tree->insert(4);
                 tree->insert(7);
                 tree->insert(13);
+                break;
+            case 16:
+                cout << "- - - - - - - - - - - - - - - Búsqueda por Anchura - - - - - - - - - - - - - - \n";
+                bfs(tree);
                 break;
             default: cout << "Ingresa una opción valida... " << endl;
                 break;
@@ -213,4 +219,16 @@ string inOrder(BinaryTree<int> *tree) {
 string postOrder(BinaryTree<int> *tree) {
     cout << "Algoritmo POST ORDER \n-> ";
     return tree->postOrder();
+}
+
+void bfs(BinaryTree<int> *tree){
+    int data;
+    cout << "Ingrese el dato a buscar: ";
+    cin >> data;
+
+    if(tree->breadthFirstSearch(data)){
+        cout << "Elemento existente" << endl;
+    } else {
+        cout << "Elemento no existente" << endl;
+    }
 }
