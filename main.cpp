@@ -5,7 +5,6 @@ using namespace std;
 int menu(){
     int option;
     cout << "\n\n- - - - - - - - - - - - - - - - M E N U - - - - - - - - - - - - - - - - - -"<<endl;
-    cout << "Hola, esta es una prueba de pull request //////////////////////////////////////, PREAB NUMERO DOS ";
     cout<< "[1]. Ingresar datos." << endl;
     cout<< "[2]. Mostrar arbol." << endl;
     cout<< "[3]. Buscar padres." << endl;
