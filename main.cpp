@@ -5,7 +5,6 @@ using namespace std;
 int menu(){
     int option;
     cout << "\n\n- - - - - - - - - - - - - - - - M E N U - - - - - - - - - - - - - - - - - -"<<endl;
-    cout << "Hola";
     cout<< "[1]. Ingresar datos." << endl;
     cout<< "[2]. Mostrar arbol." << endl;
     cout<< "[3]. Buscar padres." << endl;
@@ -17,7 +16,10 @@ int menu(){
     cout<< "[9]  Mostrar grado." << endl;
     cout<< "[10] Mostrar descendientes." << endl;
     cout<< "[11] Mostrar ancestros." << endl;
-    cout<< "[0]. Salir." ;
+    cout<< "\n[12] PRE-Order." << endl;
+    cout<< "[13] IN-Order." << endl;
+    cout<< "[14] POST-Order." << endl;
+    cout<< "\n[0]. Salir." ;
     cout<< "\nDigite una opcion: " ;
     cin>>option;
     return option;
@@ -34,6 +36,9 @@ int degree(BinaryTree<int> *tree);
 int height(BinaryTree<int> *tree);
 string descendant(BinaryTree<int> *tree);
 string ancestors(BinaryTree<int> *tree);
+string preOrder(BinaryTree<int> *tree);
+string inOrder(BinaryTree<int> *tree);
+string postOrder(BinaryTree<int> *tree);
 
 int main() {
     BinaryTree<int> *tree = new BinaryTree<int>;
@@ -91,6 +96,22 @@ int main() {
                 cout << "- - - - - - - - - - - - - - - M O S T R A R  A N C E S T R O S - - - - - - - - - - - - - - \n";
                 cout<<ancestors(tree);
                 break;
+
+            case 12:
+                cout << "- - - - - - - - - - - - - - - P R E   O R D E R - - - - - - - - - - - - - - \n";
+                cout<< preOrder(tree);
+                break;
+
+            case 13:
+                cout << "- - - - - - - - - - - - - - - I N   O R D E R - - - - - - - - - - - - - - \n";
+                cout<< inOrder(tree);
+                break;
+
+            case 14:
+                cout << "- - - - - - - - - - - - - - - P O S   O R D E R - - - - - - - - - - - - - - \n";
+                cout<< postOrder(tree);
+                break;
+
             case 15:
                 tree->insert(8);
                 tree->insert(3);
@@ -177,4 +198,19 @@ string ancestors(BinaryTree<int> *tree) {
     cout<<"Ingrese el nodo: ";
     cin>>data;
     return tree->ancestors(data);
+}
+
+string preOrder(BinaryTree<int> *tree) {
+    cout << "Algoritmo PRE ORDER \n-> ";
+    return tree->preOrder();
+}
+
+string inOrder(BinaryTree<int> *tree) {
+    cout << "Algoritmo IN ORDER \n-> ";
+    return tree->inOrder();
+}
+
+string postOrder(BinaryTree<int> *tree) {
+    cout << "Algoritmo POST ORDER \n-> ";
+    return tree->postOrder();
 }

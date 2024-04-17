@@ -29,10 +29,13 @@ private:
 
     void recursiveInsertion(Node<T>*& node,Node<T>* prevNode, T data);
     void recursiveSearch(Node<T>*& node, T data);
-    void recursivePreOrder(Node<T>* node, std::string &toReturn);
     void recursiveChildren(Node<T> *node, std::string &toReturn);
     void recursiveAncestors(Node<T> *node, std::string &toReturn);
     int recursiveDegree(Node<T> *node, T data);
+
+    void recursivePreOrder(Node<T>* node, std::string &toReturn);
+    void recursiveInOrder(Node<T> *node, std::string &toReturn);
+    void recursivePostOrder(Node<T>* node, std::string &toReturn);
 public:
     //Constructor and destructor of the class
     BinaryTree();
@@ -47,11 +50,11 @@ public:
 
     //Iterate through the tree
     std::string preOrder();
-    std::string posOrder();
+    std::string postOrder();
     std::string inOrder();
     std::string breadthFirstSearch();
 
-    //Functions of the teacher (buuuu)
+    //Functions of the teacher
     int getWeight();
     T parent(T data);
     std::string children(T data);
@@ -61,7 +64,6 @@ public:
     int height();
     std::string decendents(T data);
     std::string ancestors(T data);
-
 };
 
 //Constructor of the class
@@ -149,13 +151,35 @@ void BinaryTree<T>::recursivePreOrder(Node<T> *node, std::string &toReturn) {
 }
 
 template<typename T>
-std::string BinaryTree<T>::posOrder() {
-
+std::string BinaryTree<T>::inOrder() {
+    iterator=root;
+    std::string toReturn;
+    recursiveInOrder(iterator,toReturn);
+    return toReturn;
 }
 
 template<typename T>
-std::string BinaryTree<T>::inOrder() {
+void BinaryTree<T>::recursiveInOrder(Node<T> *node, std::string &toReturn) {
+    if(node==NULL) return;
+    recursiveInOrder(node->left,toReturn);
+    toReturn.append(std::to_string(node->data) + " - ");
+    recursiveInOrder(node->right,toReturn);
+}
 
+template<typename T>
+std::string BinaryTree<T>::postOrder() {
+    iterator=root;
+    std::string toReturn;
+    recursivePostOrder(iterator,toReturn);
+    return toReturn;
+}
+
+template<typename T>
+void BinaryTree<T>::recursivePostOrder(Node<T> *node, std::string &toReturn) {
+    if(node==NULL) return;
+    recursivePostOrder(node->left,toReturn);
+    recursivePostOrder(node->right,toReturn);
+    toReturn.append(std::to_string(node->data) + " - ");
 }
 
 template<typename T>
