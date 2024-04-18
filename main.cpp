@@ -41,6 +41,7 @@ string preOrder(BinaryTree<int> *tree);
 string inOrder(BinaryTree<int> *tree);
 string postOrder(BinaryTree<int> *tree);
 void bfs(BinaryTree<int> *tree);
+void delete_node(BinaryTree<int> *tree);
 
 int main() {
     BinaryTree<int> *tree = new BinaryTree<int>;
@@ -231,4 +232,12 @@ void bfs(BinaryTree<int> *tree){
     } else {
         cout << "Elemento no existente" << endl;
     }
+}
+
+void delete_node(BinaryTree<int> *tree){
+    int data;
+    cout<<"Ingrese el nodo: ";
+    cin>>data;
+    tree->delete_nodo(data);
+    cout<<"\nNODO BORRADO";
 }
