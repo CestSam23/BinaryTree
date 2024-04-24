@@ -34,9 +34,12 @@ private:
     void recursiveAncestors(Node<T> *node, std::string &toReturn);
     int recursiveDegree(Node<T> *node, T data);
 
+
     void recursivePreOrder(Node<T>* node, std::string &toReturn);
     void recursiveInOrder(Node<T> *node, std::string &toReturn);
     void recursivePostOrder(Node<T>* node, std::string &toReturn);
+
+    void replace(Node<T> *node, Node<T> *newnodo);
 
 public:
     //Constructor and destructor of the class
@@ -66,6 +69,7 @@ public:
     int height();
     std::string decendents(T data);
     std::string ancestors(T data);
+    void delete_nodo(T data) ;
 };
 
 //Constructor of the class
@@ -319,5 +323,41 @@ void BinaryTree<T>::recursiveAncestors(Node<T> *node, std::string &toReturn) {
         toReturn.append("NULL");
     }
 }
+
+template<typename  T>
+void BinaryTree<T>::replace(Node<T> *node, Node<T> *newnodo) {
+    if(node->father){
+        if(node->father->right!=NULL && node->data == node->father->right->data){
+            node->father->right = newnodo;
+        }
+        else if( node->father->left!=NULL && node->data == node->father->left->data){
+            node->father->left = newnodo;
+        }
+    }
+    if (newnodo){
+        newnodo->father = node->father;
+    }
+
+}
+
+template<typename  T>
+void BinaryTree<T>::delete_nodo(T data) {
+    moveTo(data);
+    if(iterator->left==NULL || iterator->right==NULL){
+        if (iterator->left) {
+            replace(iterator,iterator->left);
+            iterator->left = NULL;
+            iterator->right = NULL;
+            delete(iterator);
+
+        } else if(iterator->right) {
+            replace(iterator,iterator->right);
+            iterator->left = NULL;
+            iterator->right = NULL;
+            delete(iterator);
+        }
+    }
+}
+
 
 #endif //BINARYTREE_BINARYTREE_Hreturn
