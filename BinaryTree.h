@@ -40,6 +40,7 @@ private:
     void recursivePostOrder(Node<T>* node, std::string &toReturn);
 
     void replace(Node<T> *node, Node<T> *newnodo);
+    void LeftMajor();
 
 public:
     //Constructor and destructor of the class
@@ -343,21 +344,47 @@ void BinaryTree<T>::replace(Node<T> *node, Node<T> *newnodo) {
 template<typename  T>
 void BinaryTree<T>::delete_nodo(T data) {
     moveTo(data);
-    if(iterator->left==NULL || iterator->right==NULL){
-        if (iterator->left) {
-            replace(iterator,iterator->left);
-            iterator->left = NULL;
-            iterator->right = NULL;
-            delete(iterator);
+    Node<T>* Aux;
+    Aux=iterator;
 
-        } else if(iterator->right) {
-            replace(iterator,iterator->right);
-            iterator->left = NULL;
-            iterator->right = NULL;
-            delete(iterator);
-        }
+    if(iterator->left!=NULL && iterator->right!=NULL){
+        LeftMajor();
+        replace(Aux,iterator);
+        delete(Aux);
     }
+    if(iterator->left==NULL || iterator->right==NULL){
+       if(iterator->father->left!= NULL && iterator->data==iterator->father->left->data){
+           iterator->father->left= NULL;
+           delete(iterator);
+       }else if(iterator->father->right!= NULL && iterator->data==iterator->father->right->data){
+           iterator->father->right= NULL;
+           delete(iterator);
+       }
+    }else if (iterator->left) {
+        replace(iterator,iterator->left);
+        iterator->left = NULL;
+        iterator->right = NULL;
+        delete(iterator);
+
+    } else if(iterator->right) {
+        replace(iterator,iterator->right);
+        iterator->left = NULL;
+        iterator->right = NULL;
+        delete(iterator);
+    }
+
+
+
+
 }
 
+template<typename  T>
+void BinaryTree<T>::LeftMajor(){
+    iterator = iterator->left;
+    while(iterator->right!= nullptr){
+        iterator=iterator->right;
+    }
+
+}
 
 #endif //BINARYTREE_BINARYTREE_Hreturn

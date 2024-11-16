@@ -12,14 +12,16 @@ int menu(){
     cout<< "[5]. Buscar hermanos." << endl;
     cout<< "[6]. Mostrar niveles." << endl;
     cout<< "[7]. Mostrar peso." << endl;
-    cout<< "[8]  Mostrar altura." << endl;
-    cout<< "[9]  Mostrar grado." << endl;
-    cout<< "[10] Mostrar descendientes." << endl;
-    cout<< "[11] Mostrar ancestros." << endl;
-    cout<< "\n[12] PRE-Order." << endl;
-    cout<< "[13] IN-Order." << endl;
-    cout<< "[14] POST-Order." << endl;
-    cout << "[16] BFS. " << endl;
+    cout<< "[8].  Mostrar altura." << endl;
+    cout<< "[9].  Mostrar grado." << endl;
+    cout<< "[10]. Mostrar descendientes." << endl;
+    cout<< "[11]. Mostrar ancestros." << endl;
+    cout<< "\n[12]. PRE-Order." << endl;
+    cout<< "[13]. IN-Order." << endl;
+    cout<< "[14]. POST-Order." << endl;
+    cout<<"[15]. Charge preload Tree"<<endl;
+    cout << "[16]. BFS. " << endl;
+    cout<<"[17]. Delete Node"<<endl;
     cout<< "\n[0]. Salir." ;
     cout<< "\nDigite una opcion: " ;
     cin>>option;
@@ -42,6 +44,7 @@ string inOrder(BinaryTree<int> *tree);
 string postOrder(BinaryTree<int> *tree);
 void bfs(BinaryTree<int> *tree);
 void delete_node(BinaryTree<int> *tree);
+
 
 int main() {
     BinaryTree<int> *tree = new BinaryTree<int>;
@@ -116,19 +119,26 @@ int main() {
                 break;
 
             case 15:
+                cout<<"- - - - - - - - - - - - - - - - LOADING... - - - - - - - - - - - - - - - - - - \n";
                 tree->insert(8);
                 tree->insert(3);
                 tree->insert(1);
-                tree->insert(10);
+                /*tree->insert(10);
                 tree->insert(6);
                 tree->insert(14);
                 tree->insert(4);
                 tree->insert(7);
                 tree->insert(13);
+                tree->insert(4);*/
                 break;
             case 16:
                 cout << "- - - - - - - - - - - - - - - Búsqueda por Anchura - - - - - - - - - - - - - - \n";
                 bfs(tree);
+                break;
+
+            case 17:
+                cout<<"- - - - - - - - - - - - - - - - Delete Node- - - - - - - - - - - - - - - - - - - \n";
+                delete_node(tree);
                 break;
             default: cout << "Ingresa una opción valida... " << endl;
                 break;
@@ -239,5 +249,5 @@ void delete_node(BinaryTree<int> *tree){
     cout<<"Ingrese el nodo: ";
     cin>>data;
     tree->delete_nodo(data);
-    cout<<"\nNODO BORRADO";
+    cout<<"\nNODO BORRADO\n";
 }

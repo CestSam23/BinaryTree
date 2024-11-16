@@ -1,0 +1,131 @@
+[33mcommit 3644a429179cb9efc6f04c3303fac114a6ad352b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 933a3e2 8077de7
+Author: Samuel Fernando Tapia Gálvez <166893716+CestSam23@users.noreply.github.com>
+Date:   Wed Apr 17 00:10:03 2024 -0600
+
+    Se realizó el algoritmo Bfs y se agregó al main (#11)
+    
+    Se agregó la búsqueda por anchura, la función recibe como argumento un
+    tipo de dato T y nos regresa un valor booleano dependiendo si ha sido
+    encontrado o no.
+    
+    Supongamos el árbol formado por: 13 5 66 87 12 1
+    Si ponemos las salidas:
+    66-Elemento encontrado
+    -10- Elemento no encontrado
+
+[33mcommit 8077de7974a1f809c41a90574eea7eba7fbf9d65[m[33m ([m[1;31morigin/bfsAlgorithm[m[33m)[m
+Author: Hugo J <hugobyjavier999mail.com>
+Date:   Tue Apr 16 23:55:12 2024 -0600
+
+    Se realizó el algoritmo Bfs y se agregó al main
+    
+    Se agregó la búsqueda por anchura, la función recibe como argumento un
+    tipo de dato T y nos regresa un valor booleano dependiendo si ha sido
+    encontrado o no.
+    
+    Supongamos el árbol formado por: 13 5 66 87 12 1
+    Si ponemos las salidas:
+    66-Elemento encontrado
+    -10- Elemento no encontrado
+
+[33mcommit 933a3e2726bd4f9682ef1c2275dd009ae322e2c5[m
+Merge: 16791f2 4f769a8
+Author: Samuel Fernando Tapia Gálvez <166893716+CestSam23@users.noreply.github.com>
+Date:   Tue Apr 16 21:35:50 2024 -0600
+
+    PRE, IN, POST ORDER (#10)
+    
+    Ya se agrego pre, in, post order, tambien ya esta todo en el main :))
+
+[33mcommit 4f769a8a5a0c92106e9e89c0dad048238e5dcdf9[m
+Author: alessfl <aless.flhe9@gmail.com>
+Date:   Tue Apr 16 21:29:30 2024 -0600
+
+    Se agrego PRE, IN and POST order, ya fueron verificadas
+
+[33mcommit 08044b014ddeaf3768c17e022db7fce2b93d626e[m
+Author: alessfl <aless.flhe9@gmail.com>
+Date:   Tue Apr 16 20:16:53 2024 -0600
+
+    hola
+
+[33mcommit b32e3bdea8173b625d07ddf0f2ad359b85975af6[m
+Author: alessfl <aless.flhe9@gmail.com>
+Date:   Tue Apr 16 20:03:38 2024 -0600
+
+    pruebanumero2
+
+[33mcommit 16791f252e7b8abe5e98de02eab4185950cd902a[m
+Author: alessfl <aless.flhe9@gmail.com>
+Date:   Tue Apr 16 00:54:04 2024 -0600
+
+    solo agregue un comentario
+
+[33mcommit 2fdd0c87886eb78824fe41b8e569e51751ab2958[m
+Merge: 7a45406 43fd6c6
+Author: Samuel Fernando Tapia Gálvez <166893716+CestSam23@users.noreply.github.com>
+Date:   Mon Apr 15 18:19:20 2024 -0600
+
+    Se creó el árbol en el main y se cargaron los cambios (#5)
+    
+    hola jejejej xd
+
+[33mcommit 43fd6c6660e1fd95db329919b30c126a3cafce26[m
+Author: Celes619 <celestecl619@gmail.com>
+Date:   Mon Apr 15 17:31:38 2024 -0600
+
+    Se agrego Grado,Ancestro y Descendientes al codigo
+
+[33mcommit c278b699d5e60110232fc5ec435b803256be169d[m
+Author: Celes619 <celestecl619@gmail.com>
+Date:   Mon Apr 15 17:24:46 2024 -0600
+
+    hola
+
+[33mcommit 02fdb08810deddcf381571378b7f7dd747b9fd50[m
+Author: Celes619 <celestecl619@gmail.com>
+Date:   Mon Apr 15 17:12:19 2024 -0600
+
+    Se agregó el arból de prueba directamente en el main
+
+[33mcommit 7a454065db526889f04ece2b9185fe4668b228ad[m
+Author: Samuel Tapia <samfertap@gmail.com>
+Date:   Sun Apr 14 16:45:49 2024 -0600
+
+    Delete the main.exe and add .exe extension to .gitignore file
+    
+    q
+
+[33mcommit 2f50580a9a60efcf2a523a72dd0974e389268b98[m
+Merge: 1d477b2 300437e
+Author: Celes619 <165694133+Celes619@users.noreply.github.com>
+Date:   Sun Apr 14 16:36:23 2024 -0600
+
+    Merge pull request #1 from Celes619/Hania
+    
+    Se agrego Grado,Ancestros y Descendientes al codigo
+
+[33mcommit 300437e8f66973dfebf032519bfbd5814ec5f4c0[m
+Author: Celes619 <celestecl619@gmail.com>
+Date:   Sun Apr 14 16:34:59 2024 -0600
+
+    Se agrego Grado,Ancestros y Descendientes al codigo
+
+[33mcommit 1d477b27708798255561b705a9bf3ac99ad5442e[m
+Author: Samuel Tapia <samfertap@gmail.com>
+Date:   Sun Apr 14 15:59:06 2024 -0600
+
+    Add the .gitIgnore file, it ignores .idea and cmake-build-debug folders
+
+[33mcommit 2e55c7e9c6792b86175b6b416acf0b48650b3d6b[m
+Author: Samuel Tapia <samfertap@gmail.com>
+Date:   Sun Apr 14 15:55:43 2024 -0600
+
+    Remove the "Cmake-build-debug" folder
+
+[33mcommit 660948a655bb43beb9de10a1db3c7d3e2c8323c2[m
+Author: Samuel Fernando Tapia Gálvez <166893716+CestSam23@users.noreply.github.com>
+Date:   Sun Apr 14 15:49:09 2024 -0600
+
+    Add the existence files of the project
